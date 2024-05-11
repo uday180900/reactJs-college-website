@@ -3,12 +3,12 @@ import './About.css'
 import logo from '../../assets/hero.jpeg'
 import play from '../../assets/react.svg'
 
-function About() {
+function About({setPlayState}) {
   return (
     <div className='about'>
       <div className="about-left">
         <img src={logo} alt='' className='anout-img'/>
-        <img src={play} alt='' className='play-icon'/>
+        <img src={play} alt='' className='play-icon' onClick={()=>{setPlayState(true)}}/>
       </div>
       <div className="about-right">
         <h3>ABOUT UNIVERSITY</h3>

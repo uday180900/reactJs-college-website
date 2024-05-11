@@ -13,10 +13,16 @@ useEffect(()=>{
   })
 },[])
 
+const [mobileMenu, setMobileMenu] = useState(false);
+
+const toggleMenu = () => {
+  mobileMenu? setMobileMenu(false) : setMobileMenu(true)
+}
+
   return (
     <nav className={`container ${sticky? 'dark-nav': ''}`}>
         <img src={logo} alt='' className='logo'/>
-        <ul>
+        <ul className={mobileMenu ? '' : 'hide-mobile-menu'}>
             <li><Link to='hero' smooth={true} offset={0} duration={500}>Home</Link></li>
             <li><Link to='program' smooth={true} offset={-260} duration={500}>Program</Link></li>
             <li><Link to='about' smooth={true} offset={-150} duration={500}>About Us</Link></li>
@@ -24,6 +30,7 @@ useEffect(()=>{
             <li><Link to='testimonials' smooth={true} offset={-260} duration={500}>Testimonials</Link></li>
             <li><Link to='contact'>Contact us</Link></li>
         </ul>
+        <img src={logo} alt='' className='menu-icon' onClick={toggleMenu}/>
     </nav>
   )
 }
